@@ -1,25 +1,31 @@
 import HeroSection from '@/src/app/components/HeroSection';
 import StatsSection from '@/src/app/components/StatsSection';
+import IntroSection from '@/src/app/components/IntroSection';
+import VideoStepsSection from '@/src/app/components/VideoStepsSection';
+import FeatureSection from '@/src/app/components/FeatureSection';
 import ServicesSection from '@/src/app/components/ServicesSection';
-import AboutSection from '@/src/app/components/AboutSection';
-import TechnologiesSection from '@/src/app/components/TechnologiesSection';
+import ClientsSection from '@/src/app/components/ClientsSection';
 import TestimonialsSection from '@/src/app/components/TestimonialsSection';
 import ContactSection from '@/src/app/components/ContactSection';
 import BlogSection from '@/src/app/components/BlogSection';
-import NewsletterSection from '@/src/app/components/NewsletterSection';
+import { preloadQuery } from "convex/nextjs";
+import { api } from "@/convex/_generated/api";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const preloadedPosts = await preloadQuery(api.blog.getLatestPosts, { limit: 6 });
+
   return (
     <>
       <HeroSection />
       <StatsSection />
+      <IntroSection />
+      <VideoStepsSection />
+      <FeatureSection />
       <ServicesSection />
-      <AboutSection />
-      <TechnologiesSection />
+      <ClientsSection />
       <TestimonialsSection />
       <ContactSection />
-      <BlogSection />
-      <NewsletterSection />
+      <BlogSection preloadedPosts={preloadedPosts} />
     </>
   );
 }

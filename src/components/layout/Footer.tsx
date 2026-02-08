@@ -3,7 +3,6 @@ import Image from "next/image";
 import Logo from '@/public/logo.png'
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear();
 
     return (
         <footer className="mt-[92px] lg:mt-[150px] xl:mt-[200px] mb-[30px]">
@@ -30,7 +29,7 @@ export default function Footer() {
                             Contact
                         </h5>
                         <p className="text-text mb-5">
-                            4517 Washington Ave. Manchester, Kentucky 39495
+                            Résidence Al amira 3, 4ème étage, Bureau 42, Av. Yacoub El Mansour, 40000 - Marrakech - Maroc
                         </p>
                         <p className="text-text underline">
                             (+212) 6 61 333 946
