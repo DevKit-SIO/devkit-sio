@@ -1,0 +1,27 @@
+
+# ----------------------------------------------------------------------
+# | Rewrite rules                                                      |
+# ----------------------------------------------------------------------
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # ----------------------------------------------------------------------
+    # | Force "www"                                                        |
+    # ----------------------------------------------------------------------
+
+    # Rewrite "http://example.com" to "https://www.example.com"
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Rewrite "https://example.com" to "https://www.example.com"
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# | Custom Error Pages                                                 |
+# ----------------------------------------------------------------------
+
+# Serve Next.js custom 404 page (if statically exported, otherwise let Next.js handle it)
+# ErrorDocument 404 /404.html
