@@ -45,6 +45,24 @@ export const getPaginatedSolutions = query({
     },
 });
 
+// Query to get a single service by slug with image URL
+export const getServiceBySlug = query({
+    args: { slug: v.string() },
+    handler: async (ctx, args) => {
+        const service = await ctx.db
+            .query("service")
+            .filter((q) => q.eq(q.field("slug"), args.slug))
+            .first();
+
+        if (!service) return null;
+
+        return {
+            ...service,
+            image: (await ctx.storage.getUrl(service.image)) ?? "",
+        };
+    },
+});
+
 // Internal mutation for seeding (allows setting date)
 export const createServiceInternal = internalMutation({
     args: {
@@ -55,6 +73,11 @@ export const createServiceInternal = internalMutation({
         image: v.string(),
         body: v.string(),
         date: v.number(),
+        metaTitle: v.optional(v.string()),
+        metaDescription: v.optional(v.string()),
+        metaKeywords: v.optional(v.string()),
+        author: v.optional(v.string()),
+        canonicalUrl: v.optional(v.string()),
     },
     handler: async (ctx, args) => {
         // Check if slug exists to prevent duplicates during multiple seed runs

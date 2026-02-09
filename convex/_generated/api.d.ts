@@ -10,11 +10,14 @@
 
 import type * as actions_sendEmail from "../actions/sendEmail.js";
 import type * as blog from "../blog.js";
+import type * as blogData1 from "../blogData1.js";
+import type * as blogData2 from "../blogData2.js";
 import type * as contact from "../contact.js";
 import type * as newsletter from "../newsletter.js";
 import type * as seed from "../seed.js";
 import type * as seedOld from "../seedOld.js";
 import type * as services from "../services.js";
+import type * as servicesData from "../servicesData.js";
 
 import type {
   ApiFromModules,
@@ -25,11 +28,14 @@ import type {
 declare const fullApi: ApiFromModules<{
   "actions/sendEmail": typeof actions_sendEmail;
   blog: typeof blog;
+  blogData1: typeof blogData1;
+  blogData2: typeof blogData2;
   contact: typeof contact;
   newsletter: typeof newsletter;
   seed: typeof seed;
   seedOld: typeof seedOld;
   services: typeof services;
+  servicesData: typeof servicesData;
 }>;
 
 /**

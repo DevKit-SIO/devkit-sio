@@ -3,8 +3,49 @@ import { fetchQuery } from "convex/nextjs";
 import { api } from "@/convex/_generated/api";
 import { notFound } from "next/navigation";
 import { headers } from "next/headers";
+import type { Metadata } from 'next';
 
 type PageProps = { params: Promise<{ slug: string }> }
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { slug } = await params;
+    const post = await fetchQuery(api.blog.getPostBySlug, { slug });
+
+    if (!post) {
+        return {};
+    }
+
+    return {
+        title: post.metaTitle || post.title,
+        description: post.metaDescription,
+        keywords: post.metaKeywords?.split(',').map(k => k.trim()),
+        authors: [{ name: post.author || 'DevKit SIO Team' }],
+        alternates: {
+            canonical: post.canonicalUrl || `https://www.devkit-sio.com/blog/${slug}`,
+        },
+        openGraph: {
+            title: post.metaTitle || post.title,
+            description: post.metaDescription,
+            type: 'article',
+            publishedTime: new Date(post.date).toISOString(),
+            authors: [post.author || 'DevKit SIO Team'],
+            images: [
+                {
+                    url: post.image,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.metaTitle || post.title,
+            description: post.metaDescription,
+            images: [post.image],
+        },
+    };
+}
 
 export default async function Post({ params }: PageProps) {
     const { slug } = await params;
@@ -17,15 +58,45 @@ export default async function Post({ params }: PageProps) {
 
     // Get the current URL for sharing
     const headersList = await headers();
-    const host = headersList.get("host") || "devkit-sio.com";
+    const host = headersList.get("host") || "www.devkit-sio.com";
     const protocol = headersList.get("x-forwarded-proto") || "http";
     const shareUrl = `${protocol}://${host}/blog/${slug}`;
 
     const encodedUrl = encodeURIComponent(shareUrl);
     const shareTitle = encodeURIComponent(post.title);
 
+    // JSON-LD Structured Data for AI SEO
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: post.metaTitle || post.title,
+        description: post.metaDescription,
+        image: post.image,
+        datePublished: new Date(post.date).toISOString(),
+        author: {
+            '@type': 'Person',
+            name: post.author || 'DevKit SIO Team',
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: 'DevKit SIO',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://www.devkit-sio.com/assets/images/logo.png', // Assuming logo path
+            },
+        },
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': post.canonicalUrl || `https://www.devkit-sio.com/blog/${slug}`,
+        },
+    };
+
     return (
         <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="full-width relative">
                 <div className="aspect-[384/91] h-[350px] md:h-[455px]">
                     <img className="h-full w-full object-cover" src={post.image || "/assets/images/hero-single.png"} alt={post.title} />

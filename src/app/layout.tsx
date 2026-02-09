@@ -38,14 +38,14 @@ export const metadata: Metadata = {
     openGraph: {
         type: 'website',
         locale: 'en_US',
-        url: 'https://devkitsio.com',
+        url: 'https://www.devkitsio.com',
         siteName: 'DevKit SIO',
         title: 'DevKit SIO - Digital Innovation Agency',
         description:
             'Transform your business with cutting-edge technology solutions. Web, Mobile, AI, Marketing & More.',
         images: [
             {
-                url: '/og-image.png',
+                url: '/assets/images/team-meeting.png',
                 width: 1200,
                 height: 630,
                 alt: 'DevKit SIO - Digital Innovation Agency',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
         title: 'DevKit SIO - Digital Innovation Agency',
         description:
             'Transform your business with cutting-edge technology solutions.',
-        images: ['/og-image.png'],
+        images: ['/assets/images/team-meeting.png'],
     },
     robots: {
         index: true,
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
         },
     },
     verification: {
-        google: 'your-google-verification-code',
+        google: 'lLpS02mqKrX_yPb_8DgHH1j2oPsZsRoVch1rC3nSQfo',
     },
 };
 

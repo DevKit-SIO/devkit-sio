@@ -96,6 +96,11 @@ export const createPostInternal = internalMutation({
         body: v.string(),
         bgColor: v.string(),
         date: v.number(),
+        metaTitle: v.optional(v.string()),
+        metaDescription: v.optional(v.string()),
+        metaKeywords: v.optional(v.string()),
+        author: v.optional(v.string()),
+        canonicalUrl: v.optional(v.string()),
     },
     handler: async (ctx, args) => {
         return await ctx.db.insert("blog", args);
