@@ -12,7 +12,7 @@ export default function MissionVision() {
         <>
             {/* Hero Section */}
             <div className="full-width bg-gray-900 py-[100px] lg:py-[150px] relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop')] bg-cover bg-center"></div>
+                <div className="absolute inset-0 opacity-10 bg-[url('/assets/images/mission-vision/hero-bg.jpg')] bg-cover bg-center"></div>
                 <div className="px-[12px] md:px-[36px] xl:px-0 mx-auto max-w-[1320px] text-center relative z-10">
                     <span className="font-chivo inline-block bg-green-500/20 text-green-300 border border-green-500/50 py-[8px] px-[20px] rounded-[50px] text-[14px] font-bold mb-[30px] uppercase tracking-wider backdrop-blur-md">
                         Our Purpose

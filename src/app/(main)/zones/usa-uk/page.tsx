@@ -12,7 +12,7 @@ export default function UsaUkZone() {
     return (
         <>
             <div className="full-width relative h-[600px] overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1600&q=80" alt="New York Skyline" className="w-full h-full object-cover" />
+                <img src="/assets/images/zones/usa-uk-hero.jpg" alt="New York Skyline" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-red-900/70 flex items-center justify-center">
                     <div className="text-center px-4 max-w-[1000px]">
                         <span className="font-chivo inline-block bg-white/10 text-white border border-white/20 py-[8px] px-[20px] rounded-[50px] text-[14px] font-bold mb-[24px] uppercase tracking-wider backdrop-blur-md">

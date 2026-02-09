@@ -14,7 +14,7 @@ const zones = [
         slug: "france",
         tagline: "Our Roots, Your Local Partner",
         description: "Headquartered in Paris, we provide elite engineering teams to French enterprises, adhering to strict GDPR standards and local business culture.",
-        image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+        image: "/assets/images/zones/france-hero.jpg",
         stats: ["HQ Location", "100+ Clients", "GDPR Expert"]
     },
     {
@@ -22,7 +22,7 @@ const zones = [
         slug: "europe",
         tagline: "Nearshore Excellence",
         description: "Serving the broader European market (DACH, Nordics, Benelux) with high-availability nearshore teams, synchronized time zones, and cultural alignment.",
-        image: "https://images.unsplash.com/photo-1473951574080-01fe45ec8643?auto=format&fit=crop&w=800&q=80",
+        image: "/assets/images/zones/europe-hero.jpg",
         stats: ["EU Compliant", "UTC+1 Teams", "Multi-lingual"]
     },
     {
@@ -30,7 +30,7 @@ const zones = [
         slug: "usa-uk",
         tagline: "Speed & Scalability",
         description: "Empowering startups and scale-ups in high-velocity anglophone markets. We provide scalable pods that integrate directly with your onshore workflows.",
-        image: "https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=800&q=80",
+        image: "/assets/images/zones/usa-uk-hero.jpg",
         stats: ["24/7 Ops", "Agile Native", "Scale-ready"]
     },
     {
@@ -38,7 +38,7 @@ const zones = [
         slug: "moyen-orient",
         tagline: "Visionary Tech",
         description: "Partnering with governments and enterprises in the GCC to build Smart Cities and digital infrastructure for Vision 2030 and beyond.",
-        image: "https://images.unsplash.com/photo-1512453979798-5ea904ac66de?auto=format&fit=crop&w=800&q=80",
+        image: "/assets/images/zones/middle-east-card.jpg",
         stats: ["GovTech", "Smart City", "AI Focus"]
     }
 ];
@@ -48,7 +48,7 @@ export default function Zones() {
         <>
             {/* Hero Section */}
             <div className="full-width bg-gray-900 py-[100px] lg:py-[150px] relative overflow-hidden">
-                <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2672&auto=format&fit=crop')] bg-cover bg-center"></div>
+                <div className="absolute inset-0 opacity-20 bg-[url('/assets/images/zones/hero-bg.jpg')] bg-cover bg-center"></div>
                 <div className="px-[12px] md:px-[36px] xl:px-0 mx-auto max-w-[1320px] text-center relative z-10">
                     <span className="font-chivo inline-block bg-green-500/20 text-green-300 border border-green-500/50 py-[8px] px-[20px] rounded-[50px] text-[14px] font-bold mb-[30px] uppercase tracking-wider backdrop-blur-md">
                         Global Reach, Local Impact
@@ -113,7 +113,7 @@ export default function Zones() {
                                         alt={zone.name}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
-                                    <div className="absolute bottom-0 left-0 p-8 z-20 w-full bg-gradient-to-t from-black/80 to-transparent">
+                                    <div className="absolute bottom-0 left-0 p-8 z-20 w-full bg-linear-to-t from-black/80 to-transparent">
                                         <h3 className="font-chivo font-bold text-3xl text-white mb-1">{zone.name}</h3>
                                         <p className="text-green-300 font-medium tracking-wide text-sm uppercase">{zone.tagline}</p>
                                     </div>

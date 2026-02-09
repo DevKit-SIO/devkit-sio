@@ -62,7 +62,7 @@ export default function Team() {
                     <div className="relative">
                         <div className="absolute inset-0 bg-green-500 rounded-[40px] rotate-6 opacity-10"></div>
                         <img
-                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+                            src="/assets/images/team/team-collaboration.jpg"
                             alt="Team Collaboration"
                             className="relative z-10 rounded-[40px] shadow-2xl w-full h-auto object-cover"
                         />
