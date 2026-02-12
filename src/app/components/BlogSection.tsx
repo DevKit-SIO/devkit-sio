@@ -1,67 +1,84 @@
+'use client';
+
 import Link from 'next/link';
+import { usePreloadedQuery, Preloaded } from 'convex/react';
+import { api } from '@/convex/_generated/api';
 
-const blogPosts = [
-  {
-    category: 'AI & Technology',
-    title: 'Building Custom LLMs: A Complete Guide for Businesses',
-    image: '🤖',
-    date: 'Dec 5, 2024',
-    slug: 'building-custom-llms',
-  },
-  {
-    category: 'Web Development',
-    title: 'Next.js 15 Features You Should Be Using Today',
-    image: '⚡',
-    date: 'Dec 3, 2024',
-    slug: 'nextjs-15-features',
-  },
-  {
-    category: 'Digital Marketing',
-    title: 'SEO Strategies That Actually Work in 2025',
-    image: '📈',
-    date: 'Dec 1, 2024',
-    slug: 'seo-strategies-2025',
-  },
-];
+interface BlogSectionProps {
+  preloadedPosts: Preloaded<typeof api.blog.getLatestPosts>;
+}
 
-export default function BlogSection() {
+export default function BlogSection({ preloadedPosts }: BlogSectionProps) {
+  const posts = usePreloadedQuery(preloadedPosts);
+
+  if (posts.length === 0) {
+    return (
+      <section className="py-20 lg:py-28 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 flex flex-col items-start justify-between lg:flex-row lg:items-end">
+            <div>
+              <h2 className="mb-2 text-4xl font-extrabold text-slate-900">
+                Latest News
+              </h2>
+              <p className="text-xl text-slate-500">From Our Blog and Event Message</p>
+            </div>
+            <Link
+              href="/blog"
+              className="mt-4 inline-flex items-center justify-center rounded-full bg-slate-900 px-8 py-4 font-bold text-white transition-all hover:bg-slate-800 lg:mt-0"
+            >
+              View More →
+            </Link>
+          </div>
+          <div className="text-center py-16">
+            <p className="text-slate-500">No blog posts yet. Check back soon!</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="blog" className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 flex flex-col items-start justify-between lg:flex-row lg:items-center">
+        <div className="mb-12 flex flex-col items-start justify-between lg:flex-row lg:items-end">
           <div>
             <h2 className="mb-2 text-4xl font-extrabold text-slate-900">
               Latest News
             </h2>
-            <p className="text-slate-600">From our blog and tech insights</p>
+            <p className="text-xl text-slate-500">From Our Blog and Event Message</p>
           </div>
           <Link
             href="/blog"
-            className="mt-4 rounded-full bg-teal-50 px-6 py-3 font-semibold text-teal-600 transition-colors hover:bg-teal-100 lg:mt-0"
+            className="mt-4 inline-flex items-center justify-center rounded-full bg-slate-900 px-8 py-4 font-bold text-white transition-all hover:bg-slate-800 lg:mt-0"
           >
             View More →
           </Link>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post, index) => (
-            <article
-              key={index}
-              className="blog-card group overflow-hidden rounded-2xl border border-slate-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200/50"
-            >
-              <div className="blog-image flex aspect-video items-center justify-center bg-gradient-to-br from-slate-100 to-slate-50 text-6xl transition-transform">
-                {post.image}
+        <div className="lg:grid lg:grid-cols-3 lg:gap-x-5 xl:gap-x-[30px] gap-y-[50px] xl:gap-y-[87px]">
+          {posts.map((post, index) => (
+            <a className="block group" href={`/blog/${post.slug}`} key={index}>
+              <div className="flex items-center mb-[11px]">
+                <div className="bg-gray-500 rounded-full w-[3px] h-[3px] mr-[6px]"></div>
+                <span className="uppercase text-gray-500">{post.category}</span>
               </div>
-              <div className="p-6">
-                <span className="text-xs font-semibold uppercase tracking-wider text-teal-600">
-                  {post.category}
-                </span>
-                <h3 className="mb-3 mt-2 text-lg font-bold text-slate-900 transition-colors group-hover:text-teal-600">
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                </h3>
-                <p className="text-sm text-slate-500">{post.date}</p>
+              <p className="text-heading-4 font-chivo font-bold inline-block mb-[26px]">
+                {post.title}
+              </p>
+              <div className="relative mb-16">
+                <div className="relative">
+                  <div className="pr-[26px] aspect-[430/275]">
+                    <img className="h-full w-full object-cover rounded-2xl z-10 relative"
+                      src={post.image} alt={post.title} />
+                  </div>
+                  <div className="absolute w-full h-full left-0 z-0 top-0 translate-y-[30px] pl-[33px]">
+                    <div
+                      style={{ backgroundColor: post.bgColor }}
+                      className="w-full h-full rounded-2xl transition-all duration-200 opacity-50 group-hover:-translate-x-[10px] group-hover:-translate-y-[10px]"></div>
+                  </div>
+                </div>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       </div>

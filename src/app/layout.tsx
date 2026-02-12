@@ -1,15 +1,18 @@
-import type {Metadata} from 'next';
-import {Plus_Jakarta_Sans} from 'next/font/google';
-import './globals.css'
+import type { Metadata } from 'next';
+import { ThemeModeScript } from 'flowbite-react';
 import '@/public/app.min.css';
+import './globals.css'
 import TopBar from "@/src/components/layout/TopBar";
 import Header from '@/src/components/layout/Header';
 import Footer from '@/src/components/layout/Footer';
+import BackToTop from '@/src/components/ui/BackToTop';
+import StickyHeaderWrapper from '@/src/components/ui/StickyHeaderWrapper';
+import ConvexClientProvider from '@/src/components/providers/ConvexClientProvider';
 
 export const metadata: Metadata = {
     title: {
         default: 'DevKit SIO - Digital Innovation Agency',
-        template: '%s | DevKit SIO',
+        template: '%s - DevKit SIO',
     },
     description:
         'DevKit SIO is your trusted IT partner for web development, mobile apps, AI solutions, digital marketing, automation, and talent rental services. Transform your business with cutting-edge technology.',
@@ -30,19 +33,19 @@ export const metadata: Metadata = {
         'Morocco',
         'Agadir',
     ],
-    authors: [{name: 'DevKit SIO'}],
+    authors: [{ name: 'DevKit SIO' }],
     creator: 'DevKit SIO',
     openGraph: {
         type: 'website',
         locale: 'en_US',
-        url: 'https://devkitsio.com',
+        url: 'https://www.devkitsio.com',
         siteName: 'DevKit SIO',
         title: 'DevKit SIO - Digital Innovation Agency',
         description:
             'Transform your business with cutting-edge technology solutions. Web, Mobile, AI, Marketing & More.',
         images: [
             {
-                url: '/og-image.png',
+                url: '/assets/images/team-meeting.png',
                 width: 1200,
                 height: 630,
                 alt: 'DevKit SIO - Digital Innovation Agency',
@@ -54,7 +57,7 @@ export const metadata: Metadata = {
         title: 'DevKit SIO - Digital Innovation Agency',
         description:
             'Transform your business with cutting-edge technology solutions.',
-        images: ['/og-image.png'],
+        images: ['/assets/images/team-meeting.png'],
     },
     robots: {
         index: true,
@@ -68,22 +71,34 @@ export const metadata: Metadata = {
         },
     },
     verification: {
-        google: 'your-google-verification-code',
+        google: 'lLpS02mqKrX_yPb_8DgHH1j2oPsZsRoVch1rC3nSQfo',
     },
 };
 
-export default function RootLayout({children}: { children: React.ReactNode; }) {
+export default function RootLayout({ children }: { children: React.ReactNode; }) {
     return (
         <html lang="en">
-        <body className="overflow-x-hidden w-screen relative">
-        <TopBar/>
-        <div className="wrapper mx-auto text-gray-900 font-normal max-w-[1320px]">
-            <a name="top"> </a>
-            <Header/>
-            {children}
-            <Footer/>
-        </div>
-        </body>
+            <head>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link rel="stylesheet"
+                    href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap" />
+                <ThemeModeScript />
+            </head>
+            <body className="overflow-x-hidden w-screen relative">
+                <ConvexClientProvider>
+                    <TopBar />
+                    <StickyHeaderWrapper>
+                        <Header />
+                    </StickyHeaderWrapper>
+                    <div className="wrapper mx-auto text-gray-900 font-normal max-w-[1320px]">
+                        {children}
+                        <BackToTop />
+                        <Footer />
+                    </div>
+                </ConvexClientProvider>
+            </body>
         </html>
     );
 }
+

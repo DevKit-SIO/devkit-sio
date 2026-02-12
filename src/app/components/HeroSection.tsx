@@ -1,166 +1,107 @@
-import Link from 'next/link';
-import { ArrowRight, Play, Check, TrendingUp } from 'lucide-react';
+import { ArrowRight, Play, BrainCircuit, Globe, Smartphone, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function HeroSection() {
-  return (
-    <section
-      id="home"
-      className="hero-gradient relative overflow-hidden pb-20 pt-32"
-    >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute right-0 top-20 h-96 w-96 rounded-full bg-teal-50 opacity-60 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-cyan-50 opacity-60 blur-3xl" />
-        <div className="dot-pattern absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 opacity-40" />
-      </div>
-
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          {/* Left Content */}
-          <div className="animate-fade-in-up space-y-8">
-            <div className="inline-flex items-center gap-2 rounded-full bg-teal-50 px-4 py-2">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-teal-500" />
-              <span className="text-sm font-semibold text-teal-700">
-                Digital Innovation Agency
-              </span>
+    return (
+        <>
+            <div className="px-[12px] md:px-[36px] xl:px-0 mt-[70px] items-center lg:flex">
+                <div className="lg:w-[70%] mb-[80px]">
+                    <span
+                        className="font-chivo inline-block bg-green-900 text-white py-[14px] px-[28px] rounded-[50px] text-[14px] leading-[14px] mb-[29px]">
+                        AI-Powered Digital Agency
+                    </span>
+                    <h1 className="font-chivo font-bold lg:text-display-2 md:text-[64px] md:leading-[70px] sm:text-[50px] sm:leading-[58px] text-[40px] leading-[48px] mb-[54px]">
+                        Transform Your Business with Digital Innovation
+                    </h1>
+                    <p className="text-quote md:text-lead-lg text-gray-500 pr-[40px] lg:pr-[150px] mb-[44px]">
+                        From custom web and mobile apps to AI automation and digital marketing. We build solutions that drive growth and efficiency.
+                    </p>
+                    <div className="flex items-center justify-start mb-[50px]">
+                        <button type="button">
+                            <a
+                                className="flex items-center z-10 relative transition-all duration-200 group px-[22px] py-[15px] lg:px-[32px] lg:py-[22px] rounded-md bg-gray-900 text-white hover:bg-gray-100 hover:text-gray-900 bg-black text-heading-6 tracking-wide mr-[22px]"
+                                href="/contact">
+                                <span
+                                    className="block text-inherit w-full h-full rounded-md text-lg font-chivo font-semibold">
+                                    Start Your Project
+                                </span>
+                                <ArrowRight className="ml-[7px] w-[24px] text-white group-hover:text-black" />
+                            </a>
+                        </button>
+                        <div className="flex items-center gap-3">
+                            <Play size={36} className="text-[#158E99]" />
+                            <a
+                                className="text-base flex items-center font-chivo font-medium text-[18px] leading-[18px] gap-[5px]"
+                                href="/services">
+                                Explore Services
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div className="hidden relative lg:block">
+                    <img className="relative z-10 animate-hero-thumb-sm-animation" src="/assets/images/hero-6.png"
+                        alt="DevKit SIO Digital Solutions" />
+                    <img className="absolute z-0 animate-float -right-1/4 top-[15%]" src="/assets/images/chart-1.png"
+                        alt="Growth Analytics Chart" />
+                    <img className="absolute animate-float top-1/2" src="/assets/images/icons/line-chart.svg"
+                        alt="Performance Metrics" />
+                </div>
             </div>
-
-            <h1 className="text-5xl font-extrabold leading-tight text-slate-900 lg:text-6xl">
-              The Fastest Way to
-              <span className="gradient-text block">Achieve Success</span>
-            </h1>
-
-            <p className="max-w-lg text-lg leading-relaxed text-slate-600">
-              We transform businesses through cutting-edge technology solutions.
-              From web and mobile development to AI integration and digital
-              marketing.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="btn-primary-hover group flex items-center gap-2 rounded-full bg-teal-600 px-8 py-4 font-semibold text-white shadow-lg shadow-teal-600/30 transition-all hover:bg-teal-700"
-              >
-                Get Started
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <button className="group flex items-center gap-2 rounded-full border-2 border-slate-200 bg-white px-8 py-4 font-semibold text-slate-700 transition-all hover:border-teal-300 hover:text-teal-600">
-                <Play className="h-5 w-5" />
-                How It Works
-              </button>
+            <div className="full-width bg-[#bee1e6] z-50">
+                <div
+                    className="px-[12px] md:px-[36px] xl:px-0 mt-0 mx-auto hidden max-w-[1320px] lg:flex gap-[30px] -translate-y-[30%]">
+                    <div className="rounded-2xl p-[20px] xl:p-[30px] border border-gray-200 bg-white group flex-1">
+                        <a className="flex flex-col justify-between h-full" href="/services/intelligence-artificielle">
+                            <div className="flex items-center gap-4 mb-5">
+                                <div
+                                    className="rounded-full transition-all duration-200 grid place-items-center w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] bg-[#0B7B3F33] group-hover:bg-[#158E99]">
+                                    <BrainCircuit size={60} className="rounded-full xl:p-[18px] max-w-[20px] xl:max-w-[60px] text-[#158E99] group-hover:text-white" />
+                                </div>
+                                <h4 className="font-bold font-chivo text-[14px] xl:text-heading-5">
+                                    AI Solutions & Automation
+                                </h4>
+                            </div>
+                            <p className="text-gray-500 text-[14px] xl:text-lead-lg mb-4">
+                                Chatbots, RPA, predictive analytics, and custom AI integrations to streamline your operations.
+                            </p>
+                        </a>
+                    </div>
+                    <div className="rounded-2xl p-[20px] xl:p-[30px] border border-gray-200 bg-white group flex-1"><a
+                        className="flex flex-col justify-between h-full" href="/services/web-development">
+                        <div className="flex items-center gap-4 mb-5">
+                            <div
+                                className="rounded-full transition-all duration-200 grid place-items-center w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] bg-[#0B7B3F33] group-hover:bg-[#158E99]">
+                                <Globe size={60} className="rounded-full xl:p-[18px] max-w-[20px] xl:max-w-[60px] text-[#158E99] group-hover:text-white" />
+                            </div>
+                            <h4 className="font-bold font-chivo text-[14px] xl:text-heading-5">
+                                Web Development
+                            </h4>
+                        </div>
+                        <p className="text-gray-500 text-[14px] xl:text-lead-lg mb-4">
+                            Custom websites and platforms with React, Next.js, Laravel, and modern frameworks.
+                        </p>
+                    </a>
+                    </div>
+                    <div className="rounded-2xl p-[20px] border border-gray-200 group bg-white flex-[1.4]"><a
+                        className="flex h-full" href="/services/mobile-app-development">
+                        <div className="flex flex-col gap-1">
+                            <div
+                                className="bg-opacity-20 rounded-full transition-all duration-200 w-[40px] h-[40px] xl:w-[60px] xl:h-[60px] bg-[#0B7B3F33] group-hover:bg-[#158E99]">
+                                <Smartphone size={60} className="rounded-full p-[8px] xl:p-[18px] max-w-[60px] text-[#158E99] group-hover:text-white" />
+                            </div>
+                            <h4 className="font-bold font-chivo text-[14px] xl:text-heading-5">
+                                Mobile Apps
+                            </h4>
+                            <p className="text-gray-500 text-[14px] xl:text-lead-lg xl:mb-5">
+                                iOS & Android apps with Flutter, React Native, and native development.
+                            </p>
+                            <img className="w-[18px]" src="https://wp.alithemes.com/html/agon/html-tailwindcss/demo/assets/images/icons/icon-right-arrow.svg"
+                                alt="Learn more" />
+                        </div>
+                        <img className="object-cover rounded-2xl xl:max-h-[249px] xl:max-w-[188px] max-w-[50%]"
+                            src="https://wp.alithemes.com/html/agon/html-tailwindcss/demo/assets/images/thumbnail-2.png" alt="Mobile App Development" /></a>
+                    </div>
+                </div>
             </div>
-
-            {/* Trust Badges */}
-            <div className="flex items-center gap-6 pt-4">
-              <div className="flex -space-x-3">
-                {['AK', 'SR', 'MT', 'JD'].map((initials, i) => (
-                  <div
-                    key={i}
-                    className={`flex h-10 w-10 items-center justify-center rounded-full border-2 border-white text-xs font-bold text-white ${
-                      [
-                        'bg-gradient-to-br from-rose-400 to-rose-500',
-                        'bg-gradient-to-br from-blue-400 to-blue-500',
-                        'bg-gradient-to-br from-amber-400 to-amber-500',
-                        'bg-gradient-to-br from-emerald-400 to-emerald-500',
-                      ][i]
-                    }`}
-                  >
-                    {initials}
-                  </div>
-                ))}
-              </div>
-              <div className="text-sm">
-                <span className="font-bold text-slate-900">500+</span>
-                <span className="text-slate-500"> Happy clients worldwide</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Content - Dashboard Preview */}
-          <div className="animate-slide-in relative">
-            {/* Main Dashboard Card */}
-            <div className="relative rounded-3xl border border-slate-100 bg-white p-6 shadow-2xl shadow-slate-200/50">
-              {/* Browser Header */}
-              <div className="mb-4 flex items-center gap-2">
-                <div className="flex gap-1.5">
-                  <div className="h-3 w-3 rounded-full bg-rose-400" />
-                  <div className="h-3 w-3 rounded-full bg-amber-400" />
-                  <div className="h-3 w-3 rounded-full bg-emerald-400" />
-                </div>
-                <div className="flex h-8 flex-1 items-center rounded-lg bg-slate-50 px-3">
-                  <span className="text-xs text-slate-400">
-                    devkit-dashboard.app
-                  </span>
-                </div>
-              </div>
-
-              {/* Dashboard Content */}
-              <div className="space-y-4">
-                {/* Stats Row */}
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="rounded-xl bg-gradient-to-br from-teal-50 to-cyan-50 p-4">
-                    <p className="mb-1 text-xs text-slate-500">Revenue</p>
-                    <p className="text-xl font-bold text-slate-900">$84.2K</p>
-                    <span className="text-xs text-emerald-600">↑ 12.5%</span>
-                  </div>
-                  <div className="rounded-xl bg-gradient-to-br from-violet-50 to-purple-50 p-4">
-                    <p className="mb-1 text-xs text-slate-500">Users</p>
-                    <p className="text-xl font-bold text-slate-900">2,847</p>
-                    <span className="text-xs text-emerald-600">↑ 8.2%</span>
-                  </div>
-                  <div className="rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 p-4">
-                    <p className="mb-1 text-xs text-slate-500">Projects</p>
-                    <p className="text-xl font-bold text-slate-900">156</p>
-                    <span className="text-xs text-emerald-600">↑ 24%</span>
-                  </div>
-                </div>
-
-                {/* Chart Area */}
-                <div className="flex h-40 items-end justify-around gap-2 rounded-xl bg-slate-50 p-4">
-                  {[40, 65, 45, 80, 55, 90, 70, 85, 60, 75, 95, 82].map(
-                    (height, i) => (
-                      <div
-                        key={i}
-                        className="w-full rounded-t-sm bg-gradient-to-t from-teal-500 to-cyan-400 transition-all hover:from-teal-600 hover:to-cyan-500"
-                        style={{ height: `${height}%` }}
-                      />
-                    )
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* Floating Cards */}
-            <div className="animate-float absolute -left-8 top-1/4 rounded-2xl border border-slate-100 bg-white p-4 shadow-xl shadow-slate-200/50">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-teal-600">
-                  <Check className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">
-                    Project Complete
-                  </p>
-                  <p className="text-xs text-slate-500">E-commerce App</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="animate-float-delayed absolute -right-4 bottom-1/4 rounded-2xl border border-slate-100 bg-white p-4 shadow-xl shadow-slate-200/50">
-              <div className="flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-purple-600">
-                  <TrendingUp className="h-6 w-6 text-white" />
-                </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-900">
-                    Real-time Data
-                  </p>
-                  <p className="text-xs text-slate-500">Analytics Ready</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </>
+    );
 }

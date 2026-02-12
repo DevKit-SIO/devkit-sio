@@ -3,7 +3,6 @@ import Image from "next/image";
 import Logo from '@/public/logo.png'
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear();
 
     return (
         <footer className="mt-[92px] lg:mt-[150px] xl:mt-[200px] mb-[30px]">
@@ -15,7 +14,8 @@ export default function Footer() {
                         <button type="button">
                             <a className="flex items-center z-10 relative transition-all duration-200 group px-[22px] py-[15px] lg:px-[32px] lg:py-[22px] rounded-md bg-gray-900 text-white hover:bg-gray-100 hover:text-gray-900 w-fit"
                                href="#">
-                                <span className="block text-inherit w-full h-full rounded-md text-lg font-chivo font-semibold">
+                                <span
+                                    className="block text-inherit w-full h-full rounded-md text-lg font-chivo font-semibold">
                                     Contact us
                                 </span>
                             </a>
@@ -30,7 +30,8 @@ export default function Footer() {
                             Contact
                         </h5>
                         <p className="text-text mb-5">
-                            4517 Washington Ave. Manchester, Kentucky 39495
+                            Résidence Al amira 3, 4ème étage, Bureau 42, Av. Yacoub El Mansour, 40000 - Marrakech -
+                            Maroc
                         </p>
                         <p className="text-text underline">
                             (+212) 6 61 333 946
@@ -48,139 +49,137 @@ export default function Footer() {
                         <ul>
                             <li className="mb-2">
                                 <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
-                                href="#">
-                                    Mission &amp; Vision
+                                   href="/about">
+                                    Company Overview
                                 </a>
                             </li>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/mission-vision">
+                                    Mission & Vision
+                                </a>
+                            </li>
+                            <li className="mb-2">
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/team">
                                     Our Team
                                 </a>
                             </li>
-                            <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
+                            {/*<li className="mb-2">
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/careers">
                                     Careers
                                 </a>
-                            </li>
+                            </li>*/}
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 className="text-heading-5 font-chivo font-bold text-gray-900 mb-5 text-[18px]">
+                            Services
+                        </h5>
+                        <ul>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Press &amp; Media
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/services/web-development">
+                                    Web & Software Development
                                 </a>
                             </li>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Advertising
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/services/seo">
+                                    SEO & Digital Growth
                                 </a>
                             </li>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Testimonials
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/services/intelligence-artificielle">
+                                    AI & Automation Solutions
+                                </a>
+                            </li>
+                            <li className="mb-2">
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/services/staff-augmentation">
+                                    Dedicated Developers
+                                </a>
+                            </li>
+                            <li className="mb-2">
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/services/community-management">
+                                    Community Management
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div>
                         <h5 className="text-heading-5 font-chivo font-bold text-gray-900 mb-5 text-[18px]">
-                            Discover
+                            Global Markets
                         </h5>
                         <ul>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Our Blog
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/zones/france">
+                                    France & Francophone Countries
                                 </a>
                             </li>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Plans &amp; Pricing
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/zones/europe">
+                                    Europe (EU)
                                 </a>
                             </li>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Knowledge Base
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/zones/usa-uk">
+                                    USA & United Kingdom
                                 </a>
                             </li>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Cookie Policy
-                                </a>
-                            </li>
-                            <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Office Center
-                                </a>
-                            </li>
-                            <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    News &amp; Events
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/zones/moyen-orient">
+                                    Saudi Arabia & GCC
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div>
                         <h5 className="text-heading-5 font-chivo font-bold text-gray-900 mb-5 text-[18px]">
-                            Support
+                            Resources & Support
                         </h5>
                         <ul>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/blog">
+                                    Blog & Insights
+                                </a>
+                            </li>
+                            <li className="mb-2">
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/faq">
                                     FAQs
                                 </a>
                             </li>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Editor Help
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/contact">
+                                    Contact & Support
                                 </a>
                             </li>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Community
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/privacy-policy">
+                                    Privacy Policy
                                 </a>
                             </li>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Live Chatting
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/cookie-policy">
+                                    Cookie Policy
                                 </a>
                             </li>
                             <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Contact Us
-                                </a>
-                            </li>
-                            <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Support Center
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5 className="text-heading-5 font-chivo font-bold text-gray-900 mb-5 text-[18px]">
-                            Useful links
-                        </h5>
-                        <ul>
-                            <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Request an offer
-                                </a>
-                            </li>
-                            <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    How it works
-                                </a>
-                            </li>
-                            <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Pricing
-                                </a>
-                            </li>
-                            <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Reviews
-                                </a>
-                            </li>
-                            <li className="mb-2">
-                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]" href="#">
-                                    Stories
+                                <a className="transition-all duration-200 hover:text-green-900 hover:pl-[3px]"
+                                   href="/terms-conditions">
+                                    Terms & Conditions
                                 </a>
                             </li>
                         </ul>
@@ -193,19 +192,22 @@ export default function Footer() {
                             © DevKit SIO Official {new Date().getFullYear()}
                         </p>
                         <div className="flex items-center justify-between md:gap-6">
-                            <a className="text-text" href="#">Privacy policy</a>
-                            <a className="text-text" href="#">Cookies</a>
-                            <a className="text-text" href="#">Terms of service</a>
+                            <a className="text-text" href="/privacy-policy">Privacy policy</a>
+                            <a className="text-text" href="/cookie-policy">Cookies</a>
+                            <a className="text-text" href="/terms-conditions">Terms of service</a>
                         </div>
                     </div>
                     <div className="flex items-center justify-center gap-5 mt-5 lg:mt-0">
-                        <a className="w-8 h-8 transition-all duration-300 hover:opacity-70 hover:-translate-y-1" href="#">
+                        <a className="w-8 h-8 transition-all duration-300 hover:opacity-70 hover:-translate-y-1"
+                           href="https://m.facebook.com/devkitsio.ma">
                             <Facebook size={24}/>
                         </a>
-                        <a className="w-8 h-8 transition-all duration-300 hover:opacity-70 hover:-translate-y-1" href="#">
+                        <a className="w-8 h-8 transition-all duration-300 hover:opacity-70 hover:-translate-y-1"
+                           href="https://www.instagram.com/devkit9/">
                             <Instagram size={24}/>
                         </a>
-                        <a className="w-8 h-8 transition-all duration-300 hover:opacity-70 hover:-translate-y-1" href="#">
+                        <a className="w-8 h-8 transition-all duration-300 hover:opacity-70 hover:-translate-y-1"
+                           href="https://www.linkedin.com/company/devkit-sio">
                             <Linkedin size={24}/>
                         </a>
                     </div>

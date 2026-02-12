@@ -3,10 +3,10 @@
 import { useEffect, useState, useRef } from 'react';
 
 const stats = [
-  { number: 150, suffix: '+', label: 'Projects Delivered' },
-  { number: 50, suffix: '+', label: 'Happy Clients' },
-  { number: 25, suffix: '+', label: 'Tech Experts' },
-  { number: 12, suffix: '+', label: 'Technologies' },
+  { number: 50, suffix: '+', label: 'Projects Delivered', description: 'Successful web, mobile, and AI projects completed.' },
+  { number: 30, suffix: '+', label: 'Happy Clients', description: 'Businesses transformed with our digital solutions.' },
+  { number: 5, suffix: '+', label: 'Years Experience', description: 'Building cutting-edge technology solutions.' },
+  { number: 15, suffix: '+', label: 'Team Members', description: 'Expert developers, designers, and strategists.' },
 ];
 
 function AnimatedCounter({
@@ -61,7 +61,7 @@ function AnimatedCounter({
   return (
     <p
       ref={ref}
-      className="mb-2 text-4xl font-extrabold text-teal-600 lg:text-5xl"
+      className="mb-2 text-4xl font-extrabold text-slate-900 lg:text-5xl"
     >
       {count}
       {suffix}
@@ -71,13 +71,18 @@ function AnimatedCounter({
 
 export default function StatsSection() {
   return (
-    <section className="bg-slate-50 py-16">
+    <section className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-12 lg:grid-cols-4">
           {stats.map((stat, index) => (
-            <div key={index} className="text-center">
+            <div key={index} className="text-left">
               <AnimatedCounter target={stat.number} suffix={stat.suffix} />
-              <p className="font-medium text-slate-600">{stat.label}</p>
+              <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-slate-900">
+                {stat.label}
+              </p>
+              <p className="mt-2 text-sm text-slate-500">
+                {stat.description}
+              </p>
             </div>
           ))}
         </div>
