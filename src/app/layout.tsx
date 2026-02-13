@@ -84,6 +84,10 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
                 <link rel="stylesheet"
                     href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&amp;family=Noto+Sans:wght@400;500;600;700;800&amp;display=swap" />
                 <ThemeModeScript />
+                <link rel="icon" href="/favicon.ico" sizes="any" />
+                <link rel="icon" href="/android-chrome-192x192.png" type="image/png" sizes="192x192"/>
+                <link rel="icon" href="/android-chrome-512x512.png" type="image/png" sizes="512x512"/>
+                <link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png"/>
             </head>
             <body className="overflow-x-hidden w-screen relative">
                 <ConvexClientProvider>
